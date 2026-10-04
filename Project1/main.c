@@ -1,89 +1,116 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <math.h>
-//Bài tập1: dùng vòng lập in ra bẳng cửu chương 2
-void main() {
-	//int cuuchuong2;
-	//for (int a = 0; a <= 10; a++)
-	//{
-	//	cuuchuong2 = 2 * a;
-	//	printf("cuu chuong 2: 2 * %d = %d\n", a, cuuchuong2);
-	//}
-//Bài tập 2: dùng vòng lâpj in ra bẳng cửu chương 2 đến 9
-	//int cuuchuong;
-	//for (int a = 2; a <= 9; a++)
-	//{
-	//	printf("Bang cuu chuong %d\n", a);
-	//	for (int b = 0;b <= 10;b++)
-	//	{
-	//		cuuchuong = a * b;
-	//		printf("%d * %d = %d \n", a, b, cuuchuong);
-	//	}
-	//	printf("\n");
-	//}
-//Bài tập 3: dùng vòng lâpj in ra bẳng cửu chương 2 đến 9 bỏ qua bảng cửu chương 4
-	//int cuuchuong;
-	//for (int a = 2; a <= 9; a++)
-	//{
-	//	if (a == 4) continue;
-	//	printf("Bang cuu chuong %d\n", a);
-	//	for (int b = 0;b <= 10;b++)
-	//	{
-	//		cuuchuong = a * b;
-	//		printf("%d * %d = %d \n", a, b, cuuchuong);
-	//	}
-	//	printf("\n");
-	//}
-//Bài tập 4: Nhập vào số nguyên n từ bàn phím
-// Tính và in ra kết quả giai thừa của n (1*2*3*...*n)
-	//int n;
-	//int ketqua = 1;
-	//printf("Nhap vao so nguyen n: ");
-	//scanf("%d", &n);
-	//for (int a = 1;a <= n;a++)
-	//{
-	//	ketqua = ketqua * a;
-	//}
-	//printf("ket qua giai thua cua %d la : %d\n", n, ketqua);
-//Bài tập 5: Nhập vào số nguyên n từ bàn phím
-//Kiểm tra xem số đó có phải là số nguyên tố hay không
-//Nếu đúng thì in ra n là số nguyên tố
-//Nếu sai thì in ra n không phải số nguyên tố
-	//int n;
-	//int isSnt=1;
-	//printf("Nhap vap so nguyen n: ");
-	//scanf("%d", &n);
-	//for (int i = 2;i < n; i++)
-	//{
-	//	if (n % i == 0) {
-	//		isSnt = 0;
-	//		break;
-	//	}
-	//}
-	//	if (isSnt){
-	//		printf("%d la so nguyen to\n", n);
-	//	}
-	//	else {
-	//		printf("%d khong phai la so nguyen to \n", n);
-	//}
-//Bài tập 6: Nhập vào số nguyên n, đếm số lượng chữ số của n và in ra màn hình
-//vd:97421 -> n có 5 chữ số
-//gợi ý: dùng vòng lặp while kết hợp chia nguyên cho 10 để đếm
-	int n;
-	int dem = 0;
-	printf("Nhap vao mot so nguyen n: ");
-	scanf("%d", &n);
-	if (n == 0)
-	{
-		dem = 1;
-	}
-	else
-	{
-		while (n != 0)
-		{
-			n = n / 10;
-			dem++;
-		}
-	}
-	printf("n co %d chu so\n", dem);
+#include <time.h>
+#include "lib.h"
+    int add(int a, int b)
+    {
+        int tong = a + b;
+        return tong;
+    }
+    //char kiem_tra_so_nguyen_to(int n)
+    //{
+    //    char kq = 1;
+
+    //    for (int i = 2; i < n; i++)
+    //    {
+    //        if (n % i == 0)
+    //        {
+    //            kq = 0;
+    //            break;
+    //        }
+    //    }
+
+    //    return kq;
+    //}
+    char kiem_tra_so_nguyen_to(int n)
+    {
+        for (int i = 2; i < n;i++)
+        {
+            if (n % i == 0) {
+                return 0;
+            }
+        }
+        return 1;
+    }
+void main(){
+    // int a = add(3, 5);
+    // int b = add(6, 7);
+    // int c = add(3, 9);
+    // printf("%d \n", a);
+    // printf("%d \n", b);
+    // printf("%d \n", c);
+    //char x = kiem_tra_so_nguyen_to(15);
+    //if (x)
+    //{
+    //    printf("day la so nguyen to \n");
+    //}
+    //else
+    //{
+    //    printf("day khong la so nguyen to \n");
+    //}
+    //return 0;
+// in ra tất cả số nguyên tố từ 0 đến 100
+    char x = kiem_tra_so_nguyen_to(100);
+    for (int i = 1;i <= 100;i++)
+    {
+        char k = kiem_tra_so_nguyen_to(i);
+        if (k == 1) {
+            printf("%d la so nguyen to \n", i);
+        }
+    }
+// khai báo (lib.h) và xây dựng hàm tìm ucln của 2 số nguyên (lib.c)
+    int ucln1 = tim_ucln(12, 20); // return 4
+    printf("ucln1: %d \n", ucln1);
+
+    int ucln2 = tim_ucln(30, 45); // return 15          
+    printf("ucln2: %d \n", ucln2);
+// khai báo (lib.h) và xây dựng hàm tìm bcnn của 2 số nguyên (lib.c)
+    int bcnn1 = tim_bcnn(3, 4); // return 12
+    printf("bcnn1: %d \n", bcnn1);
+
+    int bcnn2 = tim_bcnn(30, 45); // return 90
+    printf("bcnn2: %d \n", bcnn2);
+
+
+
+// mảng 
+    //int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    //int tong = 0;
+
+    //for (int i = 0; i < 10; i++)
+    //{
+    //    tong += arr[i];
+    //}
+
+    //printf("tong: %d\n", tong);
+
+//In ra giá trị min, max và vị trí tương ứng của nó trong mảng arr
+    int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    int tong = 0;
+    int min = arr[0];
+    int max = arr[0];
+    int vi_tri_max = 0;
+    int vi_tri_min = 0;
+    for (int i = 0; i < 10; i++)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+            vi_tri_max = i;
+        }
+        if (arr[i] < min) {
+            min = arr[i];
+            vi_tri_min = i;
+        }
+    }
+    printf("max: %d, vi tri max: %d \n", max, vi_tri_max);
+    printf("min: %d, vi tri min: %d \n", min, vi_tri_min);
+
+    int arr1[] = { 1,2,3,4,5,6,7,8,9 };
+    int length = sizeof(arr1) / sizeof(arr1[0]);
+    for (int j = 0;j < length; j++)
+    {
+        printf("j[%d]: %d \n", j, arr1[j]);
+    }
 }
