@@ -2,66 +2,67 @@
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
-#include "lib.h"
+#include "lib.h"\
+
+
 void main() {
-	// Bài 1 Đếm phân loại phần tử**
-	//Yêu cầu : Duyệt mảng và đếm xem có bao nhiêu số chẵn và bao nhiêu số lẻ.
-	//- Đầu vào : Số nguyên n và n phần tử của mảng.
-	//- Đầu ra  : 2 số nguyên tương ứng với số lượng phần tử chẵn và lẻ.
-	//Input : 6 | 3 4 7 3 1 2
-	//Output : Chan : 2, Le : 4
-        int n;
-        int arr[100];
-        int chan = 0, le = 0;
-        do
-        {
-            printf("Nhap so phan tu n (1-100): ");
-            scanf("%d", &n);
-        } while (n < 1 || n > 100);
-        for (int i = 0; i < n; i++)
-        {
-            printf("Nhap arr[%d]: ", i);
-            scanf("%d", &arr[i]);
-        }
-        for (int i = 0; i < n; i++)
-        {
-            if (arr[i] % 2 == 0)
-            {
-                chan++;
-            }
-            else
-            {
-                le++;
-            }
-        }
-        printf("Chan: %d, Le: %d\n", chan, le);
-    //Bài 2: Tìm kiếm vị trí phần tử
-    //Yêu cầu : Nhập thêm một số nguyên x.Tìm và in ra vị trí(index) cuối cùng mà x xuất hiện trong mảng.Nếu x không tồn tại, in ra - 1. Giả sử mảng bắt đầu từ index 0.
-    //Đầu vào : Số nguyên m, m phần tử của mảng và số x.
-    //Đầu ra : Vị trí index cuối cùng của x.
-    //Input : 6 | 1 5 3 5 2 5 | x = 5
-    //Output : 5 (vì số 5 xuất hiện lần cuối ở vị trí index 5)
-            int m, x;
-            int arrr[100];
-            int viTri = -1;
-            do
-            {
-                printf("Nhap so phan tu n (1-100): ");
-                scanf("%d", &m);
-            } while (m < 1 || m > 100);
-            for (int i = 0; i < m; i++)
-            {
-                printf("Nhap arrr[%d]: ", i);
-                scanf("%d", &arrr[i]);
-            }
-            printf("Nhap x: ");
-            scanf("%d", &x);
-            for (int i = 0; i < m; i++)
-            {
-                if (arrr[i] == x)
-                {
-                    viTri = i;
-                }
-            }
-            printf("Vi tri cuoi cung cua x: %d\n", viTri);
-        }
+	// Con trỏ
+	//int x = 10;
+	//int* px = &x;
+	//printf("dia chi cua bien x: %x\n", &x);
+	//printf("dia chi cua bien px: %x\n", px);
+	//printf("doc gia tri cua bien x: %x\n", *px);
+	//*px = 0x5678; //gán giá trị vào địa chỉ của con trỏ
+	//printf("doc gia tri cua bien x lan 2: %x\n", *px);
+
+	//int y = 10;
+	//int* py = &y;
+	//printf("dia chi cua bien y: %x\n", &y);
+	//printf("dia chi cua bien py: %x\n", py);
+	//printf("doc gia tri cua bien y: %x\n", *py);
+	//*py = 0x5678; //gán giá trị vào địa chỉ của con trỏ
+	//printf("doc gia tri cua bien y lan 2: %x\n", *py);
+
+	//int a = 0x1234;
+	//char* pa = &a;
+	//printf("doc gia tri cua bien a : % x\n", *(pa+1));
+	//*pa = 0x4455;
+	//*(pa + 1) = 0x6677; // nhảy lên byte cao rồi mới bắt gán( nhảy lên byte cao "12" và gán 77)
+	//printf("doc gia tri cua bien a lan 2: %x\n", a);
+
+	//short z = 0x1234;
+	//char* pz = &z;
+	//printf("byte thap:%x\n", *pz);
+	//printf("byte cao:%x\n", *(pz+1));
+
+	//int arr[] = { 1,2,3,4,5,6 };
+	//int* px;
+	//px = arr; // tên mảng cx là địa chỉ bắt đầu của mảng, cũng là địa chỉ của giá trị đầu tiên
+	//printf("px lan 1: %x\n", px);
+	//px = &arr[0];
+	//printf("px lan 2: %x \n", px);
+	//printf("px lan 2: %x \n", *(px+1));
+	//for (int i = 0;i < 6;i++) {
+	//	printf("arr[%d]: %d \n", i, *(arr + i));
+	//}
+
+	// Bài tập 1: viết hàm str_len nhận vào 1 string và trả ra độ dài của string dó
+	char str1[] = "lap trinh CCpp";
+	int len_str1 = str_len(str1);
+	printf("str1 length: %d\n", len_str1);
+
+	// Bài tập 2: viết hàm arr_sum nhận vào 1 mảng số nguyên và kích thước của mảng
+	// hàm trả về tổng các phần tử trong mảng
+	int arr[] = { 1,2,3,4,5 };
+	int len = sizeof(arr) / sizeof(arr[0]);
+	int sum = arr_sum(arr, len);
+	printf("sum arr: %d\n ", sum);//expected 15
+
+	// Bài tập 3: Viết hàm str_upper nhận vào 1 chuỗi string
+	// và chuyển toàn bộ chuỗi đó thành chuỗi in hoa
+	// gợi ý: kiểm tra kí tự từ a-z nếu đúng thì trừ đi 32
+	char str2[] = "lap trinh CCpp";
+	str_upper(str2);
+	printf("str 2 upper: %s \n", str2); // "LAP TRINH CCPP"
+
+}

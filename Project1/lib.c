@@ -9,8 +9,37 @@ int tim_ucln(int a,int b)
     }
     return a;
 }
-int tim_bcnn(int a,int b) // Khi đã tìm đc ucln thì có thể tìm bcnn = (a x b)/ ucln(a,b)
+int tim_bcnn(int a, int b) // Khi đã tìm đc ucln thì có thể tìm bcnn = (a x b)/ ucln(a,b)
 {
-    int ucln = tim_ucln( a, b);
-    return (a * b)/ucln;
+    int ucln = tim_ucln(a, b);
+    return (a * b) / ucln;
+}
+int str_len(char* str)
+{
+    int count = 0;
+    while (*str != 0)
+    {
+        count++;
+        str++;
+    }
+    return count;
+}
+int arr_sum(int arr[], int length)
+{
+    int tong = 0;
+    for (int i = 0; i < length;i++)
+    {
+        tong += arr[i];
+    }
+    return tong;
+}
+void str_upper(char str[])
+{
+    for (int i = 0; str[i] != 0; i++)
+    {
+        if (str[i] >= 'a' && str[i] <= 'z')
+        {
+            str[i] -= 32;
+        }
+    }
 }
