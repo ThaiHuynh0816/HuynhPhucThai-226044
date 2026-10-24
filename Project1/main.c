@@ -7,13 +7,13 @@
 
 void main() {
 	// Con trỏ
-	//int x = 10;
-	//int* px = &x;
-	//printf("dia chi cua bien x: %x\n", &x);
-	//printf("dia chi cua bien px: %x\n", px);
-	//printf("doc gia tri cua bien x: %x\n", *px);
-	//*px = 0x5678; //gán giá trị vào địa chỉ của con trỏ
-	//printf("doc gia tri cua bien x lan 2: %x\n", *px);
+	int x = 10;
+	int* px = &x;
+	printf("dia chi cua bien x: %x\n", &x);
+	printf("dia chi cua bien px: %x\n", px);
+	printf("doc gia tri cua bien x: %x\n", *px);
+	*px = 0x5678; //gán giá trị vào địa chỉ của con trỏ
+	printf("doc gia tri cua bien x lan 2: %x\n", *px);
 
 	//int y = 10;
 	//int* py = &y;
